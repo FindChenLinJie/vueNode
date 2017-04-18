@@ -4,10 +4,20 @@
 		<div class="test">
 			this is the test!!
 		</div>
+		<v-header></v-header>
+		<div class="tab-item">
+			<router-link to="/goods">商品</router-link>
+		</div>
+		<keep-alive>
+			<router-view></router-view>
+		</keep-alive>
 	</div>
 </template>
 
 <script>
+	import header from "./components/header";
+	import goods from "./components/goods";
+
 	export default {
 		data() {
 			return {
@@ -24,6 +34,10 @@
 				});
 
 			});
+		},
+		components: {
+			'v-header': header,
+			'v-goods': goods
 		}
 	}
 </script>

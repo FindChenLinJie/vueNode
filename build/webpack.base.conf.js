@@ -30,6 +30,7 @@ module.exports = {
 				loader: 'vue-loader',
 				options: vueLoaderConfig
 			},
+			// 编译scss
 			//			{
 			//				test: /\.vue$/,
 			//				loader: 'vue-loader',
