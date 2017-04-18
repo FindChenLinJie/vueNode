@@ -1,6 +1,9 @@
 <template>
 	<div id="app">
 		{{msg}}
+		<div class="test">
+			this is the test!!
+		</div>
 	</div>
 </template>
 
@@ -25,6 +28,10 @@
 	}
 </script>
 
-<style>
-
+<style lang="scss">
+	#app {
+		.test {
+			color: red;
+		}
+	}
 </style>
