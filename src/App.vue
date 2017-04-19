@@ -31,7 +31,8 @@
 		data() {
 			return {
 				msg: "",
-				saleMsg: [1]
+				saleMsg: [1],
+				goodsMsg:''
 			}
 		},
 		created() {
