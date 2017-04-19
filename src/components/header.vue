@@ -1,6 +1,7 @@
 <template>
 	<div>
-		<span>this is header!!!</span>
+		<span>this is header组件!!!</span>
+		<!--<v-item></v-item>-->
 	</div>
 </template>
 

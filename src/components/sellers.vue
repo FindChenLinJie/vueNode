@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<span>this is goods路由!!!</span>
+		<span>this is the sellers路由!!!</span>
 	</div>
 </template>
 
@@ -11,7 +11,7 @@
 				
 			}
 		}
-	}
+	};
 </script>
 
 <style>

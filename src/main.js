@@ -5,11 +5,12 @@ import App from './App'
 import router from './router'
 import vueResource from 'vue-resource'
 
-Vue.use(vueResource)
+Vue.use(vueResource);
 
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
+/* Vue.js 应用都是通过构造函数 Vue 创建一个 Vue 的根实例  */
 new Vue({
 	el: '#app',
 	router,
@@ -18,4 +19,4 @@ new Vue({
 	components: {
 		App
 	}
-})
+});
