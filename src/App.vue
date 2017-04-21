@@ -65,7 +65,7 @@
 
 <style lang="scss">
 	#app {
-		.test {
+		span {
 			color: red;
 		}
 	}
