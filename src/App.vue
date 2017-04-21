@@ -3,12 +3,6 @@
 		<span>{{msg}}</span>
 		<br />
 		<span @click="fn($event)">{{msg2}}</span>
-		<div class="test">
-			this is the test!!
-			test git in sublimeline!!!
-			test git in sublimeline!!!
-			test git in sublimeline!!!
-		</div>
 
 		<v-header></v-header>
 		<div class="tab-item">
@@ -40,11 +34,10 @@
 		},
 		created() {
 			this.$http.get('http://localhost:3000/index').then(function(response) {
-				var res = response.body;
-				
+				var res = response.body;				
 				// this.$nextTick(() => {
 				// this指向了vm实例，this.data.msg是错误写法
-				this.msg = res.name;
+				this.msg = res.seller.name;
 				// console.log(this.saleMsg[0]);
 				// });
 
@@ -63,7 +56,7 @@
 		},
 		methods:{
 			fn:function(event){
-				console.log(event.clientX);
+				console.log( "当前点击的位置是：" +event.clientX);
 			}
 		}
 	}
