@@ -5,6 +5,7 @@
 		<span @click="fn($event)">{{msg2}}</span>
 		<div class="test">
 			this is the test!!
+			test git in sublimeline!!!
 		</div>
 
 		<v-header></v-header>
