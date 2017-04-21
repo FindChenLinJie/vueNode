@@ -1,6 +1,6 @@
 <template>
 	<div id="app">
-		<span>{{msg}}</span>
+		<span class="width-test">{{msg}}</span>
 		<br />
 		<span @click="fn($event)">{{msg2}}</span>
 
@@ -63,8 +63,13 @@
 
 <style lang="scss">
 	#app {
-		span {
-			color: red;
+		.width-test {
+			display: inline-block;
+			height: 2.6667rem;
+			width: 2.6667rem;
+			line-height: 2.6667rem;
+			text-align: center;
+			border: 1px solid #ccc;
 		}
 	}
 </style>
