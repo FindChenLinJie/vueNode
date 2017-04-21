@@ -1,28 +1,37 @@
 <template>
 	<div id="app">
 		<span class="width-test">{{msg}}</span>
-		<br />
 		<span @click="fn($event)">{{msg2}}</span>
-
+		<!-- 头部组件 -->
 		<v-header></v-header>
+		<!-- 主体部分 -->
 		<div class="tab-item">
 			<router-link to="/goods">商品</router-link>
 		</div>
 		<div class="tab-item">
 			<router-link to="/sellers">商家</router-link>
 		</div>
-
+		<div class="tab-item">
+			<router-link to="/comments">评论</router-link>
+		</div>
+		<!-- 路由渲染内部组件 -->
 		<keep-alive>
 			<router-view></router-view>
 		</keep-alive>
-
+		<!-- 尾部组件 -->
+		<v-footer></v-footer>
 	</div>
 </template>
 
 <script>
 	import header from "./components/header/header.vue";
-	import goods from "./components/goods/goods.vue";
-	import sellers from "./components/sellers/sellers";
+	// import goods from "./components/goods/goods.vue";
+	// import sellers from "./components/sellers/sellers";
+	// import comment from "./components/comment/comment";
+	import footer from "./components/footer/footer";
+
+	// 请求express地址
+	const AJAX_URL = "http://localhost:3000/";
 
 	export default {
 		data() {
@@ -31,7 +40,7 @@
 			}
 		},
 		created() {
-			this.$http.get('http://localhost:3000/index').then(function(response) {
+			this.$http.get(AJAX_URL+ 'index').then(function(response) {
 				var res = response.body;				
 				// this.$nextTick(() => {
 				// this指向了vm实例，this.data.msg是错误写法
@@ -43,8 +52,10 @@
 		},
 		components: {
 			'v-header': header,
-			'v-goods': goods,
-			'v-sellers': sellers
+			// 'v-goods': goods,
+			// 'v-sellers': sellers,
+			// 'v-comment': comment
+			'v-footer': footer,
 		},
 		computed: {
 			msg2:function(){

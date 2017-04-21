@@ -1,7 +1,6 @@
 <template>
-	<div>
+	<div class="header">
 		<span>this is header组件!!!</span>
-		<!--<v-item></v-item>-->
 	</div>
 </template>
 
@@ -15,5 +14,8 @@
 	};
 </script>
 
-<style>
+<style lang="scss">
+	.header span {
+		color: #0095ff;
+	}
 </style>
