@@ -5,6 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+// 路由文件
 var index = require('./routes/index');
 
 var app = express();
@@ -27,6 +28,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 var cors = require("cors");
 app.use(cors());
 
+// 使用路由
 app.use('/', index);
 
 // catch 404 and forward to error handler

@@ -20,16 +20,14 @@
 </template>
 
 <script>
-	import header from "./components/header";
-	import goods from "./components/goods";
-	import sellers from "./components/sellers";
+	import header from "./components/header/header.vue";
+	import goods from "./components/goods/goods.vue";
+	import sellers from "./components/sellers/sellers";
 
 	export default {
 		data() {
 			return {
-				msg: "",
-				saleMsg: [1],
-				goodsMsg:''
+				msg: ""
 			}
 		},
 		created() {

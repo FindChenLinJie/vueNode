@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import goods from '../components/goods';
-import sellers from '../components/sellers';
+import goods from '../components/goods/goods';
+import sellers from '../components/sellers/sellers';
 
 Vue.use(Router);
 
@@ -18,4 +18,4 @@ export default new Router({
     	component: sellers
     }
   ]
-})
+});
