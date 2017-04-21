@@ -1,12 +1,15 @@
 # vue
 
-> A Vue.js project
+> A Vue+Node project
 
 ## Build Setup
 
 ``` bash
 # install dependencies
 npm install
+
+# serve at localhost:3000
+nodemon ./bin/www
 
 # serve with hot reload at localhost:8080
 npm run dev
