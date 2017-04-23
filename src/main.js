@@ -4,7 +4,9 @@ import Vue from 'vue';
 import App from './App';
 import router from './router';
 import vueResource from 'vue-resource';
+import store from '../store';
 
+// http服务 
 Vue.use(vueResource);
 
 Vue.config.productionTip = false;
@@ -14,6 +16,7 @@ Vue.config.productionTip = false;
 new Vue({
     el: '#app',
     router,
+    store,
     vueResource,
     template: '<App/>',
     components: {

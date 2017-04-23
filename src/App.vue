@@ -2,13 +2,20 @@
 	<div id="app">
 		<span class="width-test">{{msg}}</span>
 		<span @click="fn($event)">{{msg2}}</span>
-
+		<br> 
+			{{$store.state.num}}
+		<br>
+		<!--
+		<button @click="increase">+</button>
+		<button @click="decrease">-</button>
+		-->
+		<br>
 		<!-- 头部组件 -->
 		<v-header></v-header>
-		
+	
 		<!-- 主体部分 -->
 		<div class="tab-item">
-			 <!--v-bind的形式是动态的-->
+			<!--v-bind的形式是动态的-->
 			<router-link :to="{path:'/goods'}">商品</router-link>
 		</div>
 		<div class="tab-item">
@@ -25,7 +32,7 @@
 		<keep-alive>
 			<router-view></router-view>
 		</keep-alive>
-
+	
 		<!-- 尾部组件 -->
 		<v-footer></v-footer>
 	</div>
@@ -37,6 +44,8 @@ import header from "./components/header/header.vue";
 // import sellers from "./components/sellers/sellers";
 // import comment from "./components/comment/comment";
 import footer from "./components/footer/footer";
+
+// import { mapGetters, mapActions } from 'vuex';
 
 // 请求express地址
 const AJAX_URL = "http://localhost:3000/";
@@ -68,13 +77,20 @@ export default {
 	computed: {
 		msg2: function () {
 			// console.log(this.msg);
-			return this.msg + 　"test!!!";
+			return this.msg + "test!!!";
 		}
 	},
 	methods: {
 		fn: function (event) {
 			console.log("当前点击的位置是：" + event.clientX);
 		}
+		// ,
+		// increase: function () {
+		// 	this.$store.commit('increase');
+		// },
+		// decrease: function () {
+		// 	this.$store.commit('decrease');
+		// }
 	}
 }
 

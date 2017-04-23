@@ -1,21 +1,31 @@
 <template>
 	<div class="header">
 		<span>this is header组件!!!</span>
+		<button @click="increase">+</button>
+		<button @click="decrease">-</button>
 	</div>
 </template>
 
 <script>
-	export default {
-		data(){
-			return {
-				
-			}
+export default {
+	data() {
+		return {
+
 		}
-	};
+	},
+	methods: {
+		increase: function () {
+			this.$store.commit('increase');
+		},
+		decrease: function () {
+			this.$store.commit('decrease');
+		}
+	}
+};
 </script>
 
 <style lang="scss">
-	.header span {
-		color: #0095ff;
-	}
+.header span {
+	color: #0095ff;
+}
 </style>
