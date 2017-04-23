@@ -2,85 +2,93 @@
 	<div id="app">
 		<span class="width-test">{{msg}}</span>
 		<span @click="fn($event)">{{msg2}}</span>
+
 		<!-- 头部组件 -->
 		<v-header></v-header>
+		
 		<!-- 主体部分 -->
 		<div class="tab-item">
-			<router-link to="/goods">商品</router-link>
+			 <!--v-bind的形式是动态的-->
+			<router-link :to="{path:'/goods'}">商品</router-link>
 		</div>
 		<div class="tab-item">
-			<router-link to="/sellers">商家</router-link>
+			<!-- :to="{path:'/goods/sellGoods', param:{color: 'yellow'}}" 传参数给组件 this.$route.param -->
+			<router-link :to="{path:'/goods/sellGoods'}">商品子组件</router-link>
 		</div>
 		<div class="tab-item">
-			<router-link to="/comments">评论</router-link>
+			<router-link :to="{path:'/sellers'}">商家</router-link>
+		</div>
+		<div class="tab-item">
+			<router-link :to="{path:'/comments'}">评论</router-link>
 		</div>
 		<!-- 路由渲染内部组件 -->
 		<keep-alive>
 			<router-view></router-view>
 		</keep-alive>
+
 		<!-- 尾部组件 -->
 		<v-footer></v-footer>
 	</div>
 </template>
 
 <script>
-	import header from "./components/header/header.vue";
-	// import goods from "./components/goods/goods.vue";
-	// import sellers from "./components/sellers/sellers";
-	// import comment from "./components/comment/comment";
-	import footer from "./components/footer/footer";
+import header from "./components/header/header.vue";
+// import goods from "./components/goods/goods.vue";
+// import sellers from "./components/sellers/sellers";
+// import comment from "./components/comment/comment";
+import footer from "./components/footer/footer";
 
-	// 请求express地址
-	const AJAX_URL = "http://localhost:3000/";
+// 请求express地址
+const AJAX_URL = "http://localhost:3000/";
 
-	export default {
-		data() {
-			return {
-				msg: ""
-			}
-		},
-		created() {
-			this.$http.get(AJAX_URL+ 'index').then(function(response) {
-				var res = response.body;				
-				// this.$nextTick(() => {
-				// this指向了vm实例，this.data.msg是错误写法
-				this.msg = res.seller.name;
-				// console.log(this.saleMsg[0]);
-				// });
+export default {
+	data() {
+		return {
+			msg: ""
+		}
+	},
+	created() {
+		this.$http.get(AJAX_URL + 'index').then(function (response) {
+			var res = response.body;
+			// this.$nextTick(() => {
+			// this指向了vm实例，this.data.msg是错误写法
+			this.msg = res.seller.name;
+			// console.log(this.saleMsg[0]);
+			// });
 
-			});
-		},
-		components: {
-			'v-header': header,
-			// 'v-goods': goods,
-			// 'v-sellers': sellers,
-			// 'v-comment': comment
-			'v-footer': footer,
-		},
-		computed: {
-			msg2:function(){
-				// console.log(this.msg);
-				return this.msg +　"test!!!";
-			}
-		},
-		methods:{
-			fn:function(event){
-				console.log( "当前点击的位置是：" +event.clientX);
-			}
+		});
+	},
+	components: {  // 对象
+		'v-header': header,
+		// 'v-goods': goods,
+		// 'v-sellers': sellers,
+		// 'v-comment': comment
+		'v-footer': footer,
+	},
+	computed: {
+		msg2: function () {
+			// console.log(this.msg);
+			return this.msg + 　"test!!!";
+		}
+	},
+	methods: {
+		fn: function (event) {
+			console.log("当前点击的位置是：" + event.clientX);
 		}
 	}
-	
+}
+
 </script>
 
 <style lang="scss">
-	#app {
-		.width-test {
-			display: inline-block;
-			height: 2.6667rem;
-			width: 2.6667rem;
-			line-height: 2.6667rem;
-			text-align: center;
-			border: 1px solid #ccc;
-		}
+#app {
+	.width-test {
+		display: inline-block;
+		height: 2.6667rem;
+		width: 2.6667rem;
+		line-height: 2.6667rem;
+		text-align: center;
+		border: 1px solid #ccc;
 	}
+}
 </style>
