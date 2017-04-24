@@ -1,14 +1,13 @@
 <template>
 	<div id="app">
 		<span class="width-test">{{msg}}</span>
-		<span @click="fn($event)">{{msg2}}</span>
-		<br> 
-			{{$store.state.num}}
+		<!--<span @click="fn($event)">{{msg2}}</span>-->
+		<br> {{$store.state.count}} {{ count }}
 		<br>
 		<!--
-		<button @click="increase">+</button>
-		<button @click="decrease">-</button>
-		-->
+			<button @click="increase">+</button>
+			<button @click="decrease">-</button>
+			-->
 		<br>
 		<!-- 头部组件 -->
 		<v-header></v-header>
@@ -46,6 +45,8 @@ import header from "./components/header/header.vue";
 import footer from "./components/footer/footer";
 
 // import { mapGetters, mapActions } from 'vuex';
+import { mapState } from 'vuex';
+import { mapGetters } from 'vuex';
 
 // 请求express地址
 const AJAX_URL = "http://localhost:3000/";
@@ -74,11 +75,29 @@ export default {
 		// 'v-comment': comment
 		'v-footer': footer,
 	},
+	// computed: mapState({
+	// 	// msg2: function () {
+	// 	// 	// console.log(this.msg);
+	// 	// 	return this.msg + "test!!!";
+	// 	// },
+	// 	// count: function(){
+	// 	// 	console.log(this.$store.state.count);
+	// 	// 	return this.$store.state.count;
+	// 	// }
+	// 	// count: state => state.count,
+	// 	count: function(state){
+	// 		return this.$store.state.count;
+	// 	},
+	// }),
+	// computed: {
+	// 	count: function(state){
+	// 		return this.$store.getters.count;
+	// 	}
+	// },
 	computed: {
-		msg2: function () {
-			// console.log(this.msg);
-			return this.msg + "test!!!";
-		}
+		...mapGetters([
+			'count'
+		])
 	},
 	methods: {
 		fn: function (event) {

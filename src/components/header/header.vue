@@ -15,7 +15,8 @@ export default {
 	},
 	methods: {
 		increase: function () {
-			this.$store.commit('increase');
+			// this.$store.commit('increase');
+			this.$store.dispatch('add');
 		},
 		decrease: function () {
 			this.$store.commit('decrease');
