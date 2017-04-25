@@ -6,7 +6,7 @@ import router from './router';
 import vueResource from 'vue-resource';
 import store from '../store';
 
-// http服务 
+// http服务插件 安装 vueResource
 Vue.use(vueResource);
 
 Vue.config.productionTip = false;
