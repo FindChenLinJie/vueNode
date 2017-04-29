@@ -50,6 +50,7 @@ import { mapGetters } from 'vuex';
 
 // 请求express地址
 const AJAX_URL = "http://localhost:3000/";
+// AJAX_URL + 'index'
 
 export default {
 	data() {
@@ -58,11 +59,12 @@ export default {
 		}
 	},
 	created() {
-		this.$http.get(AJAX_URL + 'index').then(function (response) {
+		this.$http.get("http://rapapi.org/mockjs/17902/data/goods").then(function (response) {
 			var res = response.body;
+			console.log(res);
 			// this.$nextTick(() => {
 			// this指向了vm实例，this.data.msg是错误写法
-			this.msg = res.seller.name;
+			// this.msg = res.seller.name;
 			// console.log(this.saleMsg[0]);
 			// });
 
